@@ -1,0 +1,27 @@
+{
+	"name": "sybex-oracle-sdk",
+	"module": "src/index.ts",
+	"type": "module",
+  "version": "0.1.0",
+	"devDependencies": {
+		"@biomejs/biome": "2.3.8",
+		"@types/bun": "latest"
+	},
+	"peerDependencies": {
+		"typescript": "^5"
+	},
+	"dependencies": {
+		"viem": "^2.41.2"
+	},
+  "scripts": {
+    "format": "biome format",
+    "lint": "biome lint",
+    "lint:fix": "biome check --fix",
+    "typecheck": "tsc --noEmit",
+    "build": "bun build src/index.ts --outdir dist --target bun",
+    "build:node": "bun build src/index.ts --outdir dist --target node",
+    "dev": "bun --watch src/index.ts",
+    "prepublishOnly": "npm run build",
+    "clean": "rm -rf dist"
+  }
+}
