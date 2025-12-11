@@ -1,4 +1,4 @@
-import type { PublicClient } from "viem";
+import type { PublicClient, WalletClient } from "viem";
 import { CONTRACT_ADDRESSES } from "../constants/addresses";
 import { bsc } from "../constants/chains";
 import type {
@@ -27,7 +27,7 @@ export function getContractAddress(
 	return address as Address;
 }
 
-export function getChainId(client: PublicClient): Promise<ChainId> {
+export function getChainId(client: PublicClient | WalletClient): Promise<ChainId> {
 	return client.getChainId() as Promise<ChainId>;
 }
 
