@@ -274,6 +274,72 @@ console.log("Oracle ABI:", SYBEX_ORACLE_ABI);
 
 The SDK is fully typed with TypeScript strict mode enabled. All function parameters and return types are strongly typed for better developer experience and compile-time safety.
 
+## React Integration
+
+The SDK provides React hooks for seamless integration with React applications using wagmi v3.
+
+### Installation
+
+```bash
+npm install sybex-oracle-sdk wagmi viem @tanstack/react-query
+```
+
+### Quick Start
+
+```tsx
+import { SybexOracleProvider, useQuestion, useAskOracle } from 'sybex-oracle-sdk/react'
+import { WagmiProvider } from 'wagmi'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+
+const queryClient = new QueryClient()
+const wagmiConfig = createConfig({
+  chains: [bsc],
+  transports: {
+    [bsc.id]: http(),
+  },
+})
+
+function App() {
+  return (
+    <WagmiProvider config={wagmiConfig}>
+      <QueryClientProvider client={queryClient}>
+        <SybexOracleProvider config={{ chainId: 56 }}>
+          <OracleComponent />
+        </SybexOracleProvider>
+      </QueryClientProvider>
+    </WagmiProvider>
+  )
+}
+
+function OracleComponent() {
+  const { data: question } = useQuestion({ questionId: 1n })
+  const { askOracle, isPending } = useAskOracle()
+
+  const handleAskQuestion = async () => {
+    await askOracle({
+      chainId: 56,
+      question: "What will ETH price be tomorrow?",
+      timeout: 86400n,
+      arbitrator: "0x...",
+      category: 1,
+      language: 1,
+      fee: parseEther("0.01")
+    })
+  }
+
+  return (
+    <div>
+      <p>Question: {question?.questionText}</p>
+      <button onClick={handleAskQuestion} disabled={isPending}>
+        Ask Question
+      </button>
+    </div>
+  )
+}
+```
+
+For detailed React documentation, see [REACT_USAGE.md](./REACT_USAGE.md).
+
 ## License
 
 MIT

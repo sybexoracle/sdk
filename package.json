@@ -11,6 +11,10 @@
 			"types": "./dist/index.d.ts",
 			"import": "./dist/index.js"
 		},
+		"./react": {
+			"types": "./dist/react/index.d.ts",
+			"import": "./dist/react/index.js"
+		},
 		"./package.json": "./package.json"
 	},
 	"files": [
@@ -23,7 +27,10 @@
 		"bsc",
 		"viem",
 		"typescript",
-		"web3"
+		"web3",
+		"react",
+		"wagmi",
+		"hooks"
 	],
 	"author": "SybexOracle Team",
 	"license": "MIT",
@@ -38,19 +45,25 @@
 	"devDependencies": {
 		"@biomejs/biome": "2.3.8",
 		"@types/bun": "latest",
+		"@types/react": "^19.2.7",
 		"typescript": "^5"
 	},
 	"peerDependencies": {
-		"viem": "^2.41.2"
+		"viem": "^2.41.2",
+		"react": "^18.0.0 || ^19.0.0",
+		"react-dom": "^18.0.0 || ^19.0.0"
 	},
 	"dependencies": {
-		"viem": "^2.41.2"
+		"@tanstack/react-query": "^5.90.12",
+		"viem": "^2.41.2",
+		"wagmi": "^3.1.0"
 	},
 	"scripts": {
-		"build": "bun run build:lib && bun run build:types",
+		"build": "bun run build:lib && bun run build:react && bun run build:types",
 		"build:lib": "bun build src/index.ts --outdir dist --target bun",
+		"build:react": "bun build src/react/index.ts --outdir dist/react --target bun",
 		"build:types": "cp -r src/types dist/ 2>/dev/null || true && tsc -p tsconfig.build.json",
-		"build:node": "bun build src/index.ts --outdir dist --target node && bun run build:types",
+		"build:node": "bun build src/index.ts --outdir dist --target node && bun run build:react && bun run build:types",
 		"dev": "bun --watch src/index.ts",
 		"typecheck": "tsc --noEmit",
 		"format": "biome format",
