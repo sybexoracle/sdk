@@ -154,6 +154,7 @@ export interface SetFeeRecipientOptions extends BaseWalletOptions {
 export interface ResolveBinaryParams {
 	questionId: bigint;
 	outcome: 0 | 1;
+	proof: string;
 }
 
 export interface ResolveBinaryOptions extends BaseWalletOptions {
@@ -163,6 +164,7 @@ export interface ResolveBinaryOptions extends BaseWalletOptions {
 export interface ResolveCategoricalParams {
 	questionId: bigint;
 	categoryIndex: number;
+	proof: string;
 }
 
 export interface ResolveCategoricalOptions extends BaseWalletOptions {
@@ -172,6 +174,7 @@ export interface ResolveCategoricalOptions extends BaseWalletOptions {
 export interface ResolveNumericalParams {
 	questionId: bigint;
 	numericAnswer: bigint;
+	proof: string;
 }
 
 export interface ResolveNumericalOptions extends BaseWalletOptions {
@@ -182,6 +185,7 @@ export interface ResolveRangeNumericalParams {
 	questionId: bigint;
 	lowerBound: bigint;
 	upperBound: bigint;
+	proof: string;
 }
 
 export interface ResolveRangeNumericalOptions extends BaseWalletOptions {
@@ -214,8 +218,6 @@ export type GetChainIdReturn = ChainId;
 // Re-export ContractName from addresses
 export type ContractName =
 	| "SYBEX_ORACLE"
-	| "TRANSPARENT_UPGRADEABLE_PROXY"
-	| "PROXY_ADMIN"
 	| "SYBEX_BINARY_RESOLVER"
 	| "SYBEX_CATEGORICAL_RESOLVER"
 	| "SYBEX_NUMERICAL_RESOLVER"

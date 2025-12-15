@@ -32,7 +32,7 @@ async function executeWithWait(
 }
 
 export async function resolveRangeNumerical(
-	{ questionId, lowerBound, upperBound }: ResolveRangeNumericalParams,
+	{ questionId, lowerBound, upperBound, proof }: ResolveRangeNumericalParams,
 	{ client, waitForTransaction }: ResolveRangeNumericalOptions,
 ): Promise<HashReturn | TransactionReceiptReturn> {
 	validateRange(BigInt(lowerBound), BigInt(upperBound));
@@ -61,6 +61,7 @@ export async function resolveRangeNumerical(
 					BigInt(questionId),
 					BigInt(lowerBound),
 					BigInt(upperBound),
+					proof
 				],
 				chain,
 				account: client.account as any,

@@ -28,6 +28,7 @@ export function useResolveBinary({
     chainId: number;
     questionId: string | number;
     answer: number; // 0 or 1 as per uint8
+	proof: string;
     contractAddress?: string;
   }) => {
     const address = params.contractAddress || options.contractAddress;
@@ -39,7 +40,7 @@ export function useResolveBinary({
       abi: SYBEX_BINARY_RESOLVER_ABI,
       address: address as `0x${string}`,
       functionName: "resolve",
-      args: [BigInt(params.questionId), params.answer],
+      args: [BigInt(params.questionId), params.answer, params.proof],
       chainId: params.chainId,
     });
   };
@@ -155,6 +156,7 @@ export function useResolveCategorical({
     chainId: number;
     questionId: string | number;
     categoryIndex: number; // uint8
+	proof: string;
     contractAddress?: string;
   }) => {
     const address = params.contractAddress || options.contractAddress;
@@ -166,7 +168,7 @@ export function useResolveCategorical({
       abi: SYBEX_CATEGORICAL_RESOLVER_ABI,
       address: address as `0x${string}`,
       functionName: "resolve",
-      args: [BigInt(params.questionId), params.categoryIndex],
+      args: [BigInt(params.questionId), params.categoryIndex, params.proof],
       chainId: params.chainId,
     });
   };
@@ -282,6 +284,7 @@ export function useResolveNumerical({
     chainId: number;
     questionId: string | number;
     answer: string | number;
+	proof: string;
     contractAddress?: string;
   }) => {
     const address = params.contractAddress || options.contractAddress;
@@ -293,7 +296,7 @@ export function useResolveNumerical({
       abi: SYBEX_NUMERICAL_RESOLVER_ABI,
       address: address as `0x${string}`,
       functionName: "resolve",
-      args: [BigInt(params.questionId), BigInt(params.answer)],
+      args: [BigInt(params.questionId), BigInt(params.answer), params.proof],
       chainId: params.chainId,
     });
   };
@@ -410,6 +413,7 @@ export function useResolveRangeNumerical({
     questionId: string | number;
     lowerBound: string | number; // int256
     upperBound: string | number; // int256
+	proof: string;
     contractAddress?: string;
   }) => {
     const address = params.contractAddress || options.contractAddress;
@@ -421,7 +425,7 @@ export function useResolveRangeNumerical({
       abi: SYBEX_RANGE_NUMERICAL_RESOLVER_ABI,
       address: address as `0x${string}`,
       functionName: "resolve",
-      args: [BigInt(params.questionId), BigInt(params.lowerBound), BigInt(params.upperBound)],
+      args: [BigInt(params.questionId), BigInt(params.lowerBound), BigInt(params.upperBound), params.proof],
       chainId: params.chainId,
     });
   };

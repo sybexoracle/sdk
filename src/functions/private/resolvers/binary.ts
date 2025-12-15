@@ -32,7 +32,7 @@ async function executeWithWait(
 }
 
 export async function resolveBinary(
-	{ questionId, outcome }: ResolveBinaryParams,
+	{ questionId, outcome, proof }: ResolveBinaryParams,
 	{ client, waitForTransaction }: ResolveBinaryOptions,
 ): Promise<HashReturn | TransactionReceiptReturn> {
 	validateBinaryOutcome(outcome);
@@ -57,7 +57,7 @@ export async function resolveBinary(
 				address: contractAddress,
 				abi: SYBEX_BINARY_RESOLVER_ABI,
 				functionName: "resolve",
-				args: [BigInt(questionId), outcome],
+				args: [BigInt(questionId), outcome, proof],
 				chain,
 				account: client.account as any,
 			}),

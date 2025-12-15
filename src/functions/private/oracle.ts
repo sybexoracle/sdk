@@ -69,7 +69,7 @@ export async function askOracle(
 			client.writeContract({
 				address: contractAddress,
 				abi: SYBEX_ORACLE_ABI,
-				functionName: "ask",
+				functionName: "askCategorical",
 				args: [questionText, BigInt(timeout), additionalData],
 				value: value || undefined,
 				chain,

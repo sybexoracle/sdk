@@ -32,7 +32,7 @@ async function executeWithWait(
 }
 
 export async function resolveCategorical(
-	{ questionId, categoryIndex }: ResolveCategoricalParams,
+	{ questionId, categoryIndex, proof }: ResolveCategoricalParams,
 	{ client, waitForTransaction }: ResolveCategoricalOptions,
 ): Promise<HashReturn | TransactionReceiptReturn> {
 	validateCategoryIndex(categoryIndex);
@@ -57,7 +57,7 @@ export async function resolveCategorical(
 				address: contractAddress,
 				abi: SYBEX_CATEGORICAL_RESOLVER_ABI,
 				functionName: "resolve",
-				args: [BigInt(questionId), categoryIndex],
+				args: [BigInt(questionId), categoryIndex, proof],
 				chain,
 				account: client.account as any,
 			}),

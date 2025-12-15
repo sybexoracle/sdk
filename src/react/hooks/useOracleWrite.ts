@@ -32,7 +32,7 @@ export function useAskOracle({
     return await writeContractAsync({
       abi: SYBEX_ORACLE_ABI,
       address: options.contractAddress,
-      functionName: "ask",
+      functionName: "askCategorical",
       args: [
         params.question,
         BigInt(params.timeout),

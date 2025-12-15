@@ -27,7 +27,7 @@ async function executeWithWait(
 }
 
 export async function resolveNumerical(
-	{ questionId, numericAnswer }: ResolveNumericalParams,
+	{ questionId, numericAnswer, proof }: ResolveNumericalParams,
 	{ client, waitForTransaction }: ResolveNumericalOptions,
 ): Promise<HashReturn | TransactionReceiptReturn> {
 	const chainId = await getChainId(client);
@@ -50,7 +50,7 @@ export async function resolveNumerical(
 				address: contractAddress,
 				abi: SYBEX_NUMERICAL_RESOLVER_ABI,
 				functionName: "resolve",
-				args: [BigInt(questionId), BigInt(numericAnswer)],
+				args: [BigInt(questionId), BigInt(numericAnswer), proof],
 				chain,
 				account: client.account as any,
 			}),
