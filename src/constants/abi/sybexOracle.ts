@@ -2,798 +2,896 @@ import type { Abi } from "viem";
 
 export const SYBEX_ORACLE_ABI = [
 	{
-		inputs: [
-			{
-				internalType: "uint256",
-				name: "_initialFee",
-				type: "uint256",
-			},
-			{
-				internalType: "address",
-				name: "_feeRecipient",
-				type: "address",
-			},
-		],
-		stateMutability: "nonpayable",
-		type: "constructor",
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
 	},
 	{
-		inputs: [],
-		name: "AccessControlBadConfirmation",
-		type: "error",
+		"inputs": [],
+		"name": "AccessControlBadConfirmation",
+		"type": "error"
 	},
 	{
-		inputs: [
+		"inputs": [
 			{
-				internalType: "address",
-				name: "account",
-				type: "address",
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
 			},
 			{
-				internalType: "bytes32",
-				name: "neededRole",
-				type: "bytes32",
-			},
+				"internalType": "bytes32",
+				"name": "neededRole",
+				"type": "bytes32"
+			}
 		],
-		name: "AccessControlUnauthorizedAccount",
-		type: "error",
+		"name": "AccessControlUnauthorizedAccount",
+		"type": "error"
 	},
 	{
-		anonymous: false,
-		inputs: [
-			{
-				indexed: true,
-				internalType: "uint256",
-				name: "questionId",
-				type: "uint256",
-			},
-			{
-				indexed: true,
-				internalType: "address",
-				name: "resolver",
-				type: "address",
-			},
-			{
-				indexed: false,
-				internalType: "bytes",
-				name: "answerData",
-				type: "bytes",
-			},
-		],
-		name: "AnswerProvided",
-		type: "event",
+		"inputs": [],
+		"name": "InvalidInitialization",
+		"type": "error"
 	},
 	{
-		anonymous: false,
-		inputs: [
-			{
-				indexed: false,
-				internalType: "address",
-				name: "newFeeRecipient",
-				type: "address",
-			},
-		],
-		name: "FeeRecipientUpdated",
-		type: "event",
+		"inputs": [],
+		"name": "NotInitializing",
+		"type": "error"
 	},
 	{
-		anonymous: false,
-		inputs: [
-			{
-				indexed: false,
-				internalType: "uint256",
-				name: "newFee",
-				type: "uint256",
-			},
-		],
-		name: "FeeUpdated",
-		type: "event",
+		"inputs": [],
+		"name": "ReentrancyGuardReentrantCall",
+		"type": "error"
 	},
 	{
-		anonymous: false,
-		inputs: [
+		"anonymous": false,
+		"inputs": [
 			{
-				indexed: true,
-				internalType: "uint256",
-				name: "questionId",
-				type: "uint256",
+				"indexed": true,
+				"internalType": "uint256",
+				"name": "questionId",
+				"type": "uint256"
 			},
 			{
-				indexed: false,
-				internalType: "enum SybexOracle.QuestionType",
-				name: "questionType",
-				type: "uint8",
+				"indexed": true,
+				"internalType": "address",
+				"name": "resolver",
+				"type": "address"
 			},
 			{
-				indexed: false,
-				internalType: "string",
-				name: "questionText",
-				type: "string",
-			},
-			{
-				indexed: false,
-				internalType: "uint256",
-				name: "timeout",
-				type: "uint256",
-			},
-			{
-				indexed: true,
-				internalType: "address",
-				name: "asker",
-				type: "address",
-			},
+				"indexed": false,
+				"internalType": "bytes",
+				"name": "answerData",
+				"type": "bytes"
+			}
 		],
-		name: "QuestionAsked",
-		type: "event",
+		"name": "AnswerProvided",
+		"type": "event"
 	},
 	{
-		anonymous: false,
-		inputs: [
+		"anonymous": false,
+		"inputs": [
 			{
-				indexed: true,
-				internalType: "address",
-				name: "resolver",
-				type: "address",
-			},
+				"indexed": false,
+				"internalType": "address",
+				"name": "newFeeRecipient",
+				"type": "address"
+			}
 		],
-		name: "ResolverAdded",
-		type: "event",
+		"name": "FeeRecipientUpdated",
+		"type": "event"
 	},
 	{
-		anonymous: false,
-		inputs: [
+		"anonymous": false,
+		"inputs": [
 			{
-				indexed: true,
-				internalType: "address",
-				name: "resolver",
-				type: "address",
-			},
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "newFee",
+				"type": "uint256"
+			}
 		],
-		name: "ResolverRemoved",
-		type: "event",
+		"name": "FeeUpdated",
+		"type": "event"
 	},
 	{
-		anonymous: false,
-		inputs: [
+		"anonymous": false,
+		"inputs": [
 			{
-				indexed: true,
-				internalType: "bytes32",
-				name: "role",
-				type: "bytes32",
-			},
-			{
-				indexed: true,
-				internalType: "bytes32",
-				name: "previousAdminRole",
-				type: "bytes32",
-			},
-			{
-				indexed: true,
-				internalType: "bytes32",
-				name: "newAdminRole",
-				type: "bytes32",
-			},
+				"indexed": false,
+				"internalType": "uint64",
+				"name": "version",
+				"type": "uint64"
+			}
 		],
-		name: "RoleAdminChanged",
-		type: "event",
+		"name": "Initialized",
+		"type": "event"
 	},
 	{
-		anonymous: false,
-		inputs: [
+		"anonymous": false,
+		"inputs": [
 			{
-				indexed: true,
-				internalType: "bytes32",
-				name: "role",
-				type: "bytes32",
+				"indexed": true,
+				"internalType": "uint256",
+				"name": "questionId",
+				"type": "uint256"
 			},
 			{
-				indexed: true,
-				internalType: "address",
-				name: "account",
-				type: "address",
+				"indexed": false,
+				"internalType": "enum SybexOracle.QuestionType",
+				"name": "questionType",
+				"type": "uint8"
 			},
 			{
-				indexed: true,
-				internalType: "address",
-				name: "sender",
-				type: "address",
+				"indexed": false,
+				"internalType": "string",
+				"name": "questionText",
+				"type": "string"
 			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "timeout",
+				"type": "uint256"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "asker",
+				"type": "address"
+			}
 		],
-		name: "RoleGranted",
-		type: "event",
+		"name": "QuestionAsked",
+		"type": "event"
 	},
 	{
-		anonymous: false,
-		inputs: [
+		"anonymous": false,
+		"inputs": [
 			{
-				indexed: true,
-				internalType: "bytes32",
-				name: "role",
-				type: "bytes32",
-			},
-			{
-				indexed: true,
-				internalType: "address",
-				name: "account",
-				type: "address",
-			},
-			{
-				indexed: true,
-				internalType: "address",
-				name: "sender",
-				type: "address",
-			},
+				"indexed": true,
+				"internalType": "address",
+				"name": "resolver",
+				"type": "address"
+			}
 		],
-		name: "RoleRevoked",
-		type: "event",
+		"name": "ResolverAdded",
+		"type": "event"
 	},
 	{
-		inputs: [],
-		name: "ADMIN_ROLE",
-		outputs: [
+		"anonymous": false,
+		"inputs": [
 			{
-				internalType: "bytes32",
-				name: "",
-				type: "bytes32",
-			},
+				"indexed": true,
+				"internalType": "address",
+				"name": "resolver",
+				"type": "address"
+			}
 		],
-		stateMutability: "view",
-		type: "function",
+		"name": "ResolverRemoved",
+		"type": "event"
 	},
 	{
-		inputs: [],
-		name: "DEFAULT_ADMIN_ROLE",
-		outputs: [
+		"anonymous": false,
+		"inputs": [
 			{
-				internalType: "bytes32",
-				name: "",
-				type: "bytes32",
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
 			},
+			{
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "previousAdminRole",
+				"type": "bytes32"
+			},
+			{
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "newAdminRole",
+				"type": "bytes32"
+			}
 		],
-		stateMutability: "view",
-		type: "function",
+		"name": "RoleAdminChanged",
+		"type": "event"
 	},
 	{
-		inputs: [],
-		name: "FEE_DENOMINATOR",
-		outputs: [
+		"anonymous": false,
+		"inputs": [
 			{
-				internalType: "uint256",
-				name: "",
-				type: "uint256",
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
 			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			}
 		],
-		stateMutability: "view",
-		type: "function",
+		"name": "RoleGranted",
+		"type": "event"
 	},
 	{
-		inputs: [],
-		name: "REFUND_PERIOD",
-		outputs: [
+		"anonymous": false,
+		"inputs": [
 			{
-				internalType: "uint256",
-				name: "",
-				type: "uint256",
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
 			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			}
 		],
-		stateMutability: "view",
-		type: "function",
+		"name": "RoleRevoked",
+		"type": "event"
 	},
 	{
-		inputs: [],
-		name: "RESOLVER_ROLE",
-		outputs: [
+		"inputs": [],
+		"name": "ADMIN_ROLE",
+		"outputs": [
 			{
-				internalType: "bytes32",
-				name: "",
-				type: "bytes32",
-			},
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
 		],
-		stateMutability: "view",
-		type: "function",
+		"stateMutability": "view",
+		"type": "function"
 	},
 	{
-		inputs: [
+		"inputs": [],
+		"name": "DEFAULT_ADMIN_ROLE",
+		"outputs": [
 			{
-				internalType: "address",
-				name: "resolver",
-				type: "address",
-			},
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
 		],
-		name: "addResolver",
-		outputs: [],
-		stateMutability: "nonpayable",
-		type: "function",
+		"stateMutability": "view",
+		"type": "function"
 	},
 	{
-		inputs: [
+		"inputs": [],
+		"name": "FEE_DENOMINATOR",
+		"outputs": [
 			{
-				internalType: "uint256",
-				name: "",
-				type: "uint256",
-			},
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
 		],
-		name: "answers",
-		outputs: [
-			{
-				internalType: "bytes",
-				name: "answerData",
-				type: "bytes",
-			},
-			{
-				internalType: "address",
-				name: "resolver",
-				type: "address",
-			},
-			{
-				internalType: "uint256",
-				name: "answeredAt",
-				type: "uint256",
-			},
-		],
-		stateMutability: "view",
-		type: "function",
+		"stateMutability": "view",
+		"type": "function"
 	},
 	{
-		inputs: [
+		"inputs": [],
+		"name": "REFUND_PERIOD",
+		"outputs": [
 			{
-				internalType: "string",
-				name: "_questionText",
-				type: "string",
-			},
-			{
-				internalType: "uint256",
-				name: "_timeout",
-				type: "uint256",
-			},
-			{
-				internalType: "bytes",
-				name: "_additionalData",
-				type: "bytes",
-			},
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
 		],
-		name: "ask",
-		outputs: [
-			{
-				internalType: "uint256",
-				name: "questionId",
-				type: "uint256",
-			},
-		],
-		stateMutability: "payable",
-		type: "function",
+		"stateMutability": "view",
+		"type": "function"
 	},
 	{
-		inputs: [
+		"inputs": [],
+		"name": "RESOLVER_ROLE",
+		"outputs": [
 			{
-				internalType: "string",
-				name: "_questionText",
-				type: "string",
-			},
-			{
-				internalType: "uint256",
-				name: "_timeout",
-				type: "uint256",
-			},
-			{
-				internalType: "bytes",
-				name: "_additionalData",
-				type: "bytes",
-			},
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
 		],
-		name: "askBoolean",
-		outputs: [
-			{
-				internalType: "uint256",
-				name: "questionId",
-				type: "uint256",
-			},
-		],
-		stateMutability: "payable",
-		type: "function",
+		"stateMutability": "view",
+		"type": "function"
 	},
 	{
-		inputs: [
+		"inputs": [
 			{
-				internalType: "string",
-				name: "_questionText",
-				type: "string",
-			},
-			{
-				internalType: "uint256",
-				name: "_timeout",
-				type: "uint256",
-			},
-			{
-				internalType: "bytes",
-				name: "_additionalData",
-				type: "bytes",
-			},
+				"internalType": "address",
+				"name": "resolver",
+				"type": "address"
+			}
 		],
-		name: "askNumeric",
-		outputs: [
-			{
-				internalType: "uint256",
-				name: "questionId",
-				type: "uint256",
-			},
-		],
-		stateMutability: "payable",
-		type: "function",
+		"name": "addResolver",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
 	},
 	{
-		inputs: [],
-		name: "fee",
-		outputs: [
+		"inputs": [
 			{
-				internalType: "uint256",
-				name: "",
-				type: "uint256",
-			},
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
 		],
-		stateMutability: "view",
-		type: "function",
+		"name": "answers",
+		"outputs": [
+			{
+				"internalType": "bytes",
+				"name": "answerData",
+				"type": "bytes"
+			},
+			{
+				"internalType": "address",
+				"name": "resolver",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "answeredAt",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
 	},
 	{
-		inputs: [],
-		name: "feeRecipient",
-		outputs: [
+		"inputs": [
 			{
-				internalType: "address",
-				name: "",
-				type: "address",
+				"internalType": "enum SybexOracle.QuestionType",
+				"name": "_questionType",
+				"type": "uint8"
 			},
+			{
+				"internalType": "string",
+				"name": "_questionText",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_timeout",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bytes",
+				"name": "_additionalData",
+				"type": "bytes"
+			}
 		],
-		stateMutability: "view",
-		type: "function",
+		"name": "ask",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "questionId",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "payable",
+		"type": "function"
 	},
 	{
-		inputs: [
+		"inputs": [
 			{
-				internalType: "uint256",
-				name: "questionId",
-				type: "uint256",
+				"internalType": "string",
+				"name": "_questionText",
+				"type": "string"
 			},
+			{
+				"internalType": "uint256",
+				"name": "_timeout",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bytes",
+				"name": "_additionalData",
+				"type": "bytes"
+			}
 		],
-		name: "getAnswer",
-		outputs: [
+		"name": "askBoolean",
+		"outputs": [
 			{
-				internalType: "bytes",
-				name: "answerData",
-				type: "bytes",
-			},
-			{
-				internalType: "address",
-				name: "resolver",
-				type: "address",
-			},
+				"internalType": "uint256",
+				"name": "questionId",
+				"type": "uint256"
+			}
 		],
-		stateMutability: "view",
-		type: "function",
+		"stateMutability": "payable",
+		"type": "function"
 	},
 	{
-		inputs: [
+		"inputs": [
 			{
-				internalType: "bytes32",
-				name: "role",
-				type: "bytes32",
+				"internalType": "string",
+				"name": "_questionText",
+				"type": "string"
 			},
-		],
-		name: "getRoleAdmin",
-		outputs: [
 			{
-				internalType: "bytes32",
-				name: "",
-				type: "bytes32",
+				"internalType": "uint256",
+				"name": "_timeout",
+				"type": "uint256"
 			},
+			{
+				"internalType": "bytes",
+				"name": "_additionalData",
+				"type": "bytes"
+			}
 		],
-		stateMutability: "view",
-		type: "function",
+		"name": "askCategorical",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "questionId",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "payable",
+		"type": "function"
 	},
 	{
-		inputs: [
+		"inputs": [
 			{
-				internalType: "bytes32",
-				name: "role",
-				type: "bytes32",
+				"internalType": "string",
+				"name": "_questionText",
+				"type": "string"
 			},
 			{
-				internalType: "address",
-				name: "account",
-				type: "address",
+				"internalType": "uint256",
+				"name": "_timeout",
+				"type": "uint256"
 			},
+			{
+				"internalType": "bytes",
+				"name": "_additionalData",
+				"type": "bytes"
+			}
 		],
-		name: "grantRole",
-		outputs: [],
-		stateMutability: "nonpayable",
-		type: "function",
+		"name": "askNumeric",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "questionId",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "payable",
+		"type": "function"
 	},
 	{
-		inputs: [
+		"inputs": [
 			{
-				internalType: "bytes32",
-				name: "role",
-				type: "bytes32",
+				"internalType": "string",
+				"name": "_questionText",
+				"type": "string"
 			},
 			{
-				internalType: "address",
-				name: "account",
-				type: "address",
+				"internalType": "uint256",
+				"name": "_timeout",
+				"type": "uint256"
 			},
+			{
+				"internalType": "bytes",
+				"name": "_additionalData",
+				"type": "bytes"
+			}
 		],
-		name: "hasRole",
-		outputs: [
+		"name": "askRangeNumeric",
+		"outputs": [
 			{
-				internalType: "bool",
-				name: "",
-				type: "bool",
-			},
+				"internalType": "uint256",
+				"name": "questionId",
+				"type": "uint256"
+			}
 		],
-		stateMutability: "view",
-		type: "function",
+		"stateMutability": "payable",
+		"type": "function"
 	},
 	{
-		inputs: [
+		"inputs": [],
+		"name": "fee",
+		"outputs": [
 			{
-				internalType: "address",
-				name: "resolver",
-				type: "address",
-			},
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
 		],
-		name: "isResolver",
-		outputs: [
-			{
-				internalType: "bool",
-				name: "",
-				type: "bool",
-			},
-		],
-		stateMutability: "view",
-		type: "function",
+		"stateMutability": "view",
+		"type": "function"
 	},
 	{
-		inputs: [],
-		name: "maxQuestionLength",
-		outputs: [
+		"inputs": [],
+		"name": "feeRecipient",
+		"outputs": [
 			{
-				internalType: "uint256",
-				name: "",
-				type: "uint256",
-			},
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
 		],
-		stateMutability: "view",
-		type: "function",
+		"stateMutability": "view",
+		"type": "function"
 	},
 	{
-		inputs: [],
-		name: "maxTimeout",
-		outputs: [
+		"inputs": [
 			{
-				internalType: "uint256",
-				name: "",
-				type: "uint256",
-			},
+				"internalType": "uint256",
+				"name": "questionId",
+				"type": "uint256"
+			}
 		],
-		stateMutability: "view",
-		type: "function",
+		"name": "getAnswer",
+		"outputs": [
+			{
+				"internalType": "bytes",
+				"name": "answerData",
+				"type": "bytes"
+			},
+			{
+				"internalType": "address",
+				"name": "resolver",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
 	},
 	{
-		inputs: [],
-		name: "minQuestionLength",
-		outputs: [
+		"inputs": [
 			{
-				internalType: "uint256",
-				name: "",
-				type: "uint256",
-			},
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}
 		],
-		stateMutability: "view",
-		type: "function",
+		"name": "getRoleAdmin",
+		"outputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
 	},
 	{
-		inputs: [],
-		name: "minTimeout",
-		outputs: [
+		"inputs": [
 			{
-				internalType: "uint256",
-				name: "",
-				type: "uint256",
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
 			},
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
 		],
-		stateMutability: "view",
-		type: "function",
+		"name": "grantRole",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
 	},
 	{
-		inputs: [
+		"inputs": [
 			{
-				internalType: "uint256",
-				name: "questionId",
-				type: "uint256",
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
 			},
 			{
-				internalType: "bytes",
-				name: "answerData",
-				type: "bytes",
-			},
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
 		],
-		name: "provideAnswer",
-		outputs: [],
-		stateMutability: "nonpayable",
-		type: "function",
+		"name": "hasRole",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
 	},
 	{
-		inputs: [],
-		name: "questionCount",
-		outputs: [
+		"inputs": [
 			{
-				internalType: "uint256",
-				name: "",
-				type: "uint256",
+				"internalType": "uint256",
+				"name": "_initialFee",
+				"type": "uint256"
 			},
+			{
+				"internalType": "address",
+				"name": "_feeRecipient",
+				"type": "address"
+			}
 		],
-		stateMutability: "view",
-		type: "function",
+		"name": "initialize",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
 	},
 	{
-		inputs: [
+		"inputs": [
 			{
-				internalType: "uint256",
-				name: "",
-				type: "uint256",
-			},
+				"internalType": "address",
+				"name": "resolver",
+				"type": "address"
+			}
 		],
-		name: "questions",
-		outputs: [
+		"name": "isResolver",
+		"outputs": [
 			{
-				internalType: "enum SybexOracle.QuestionType",
-				name: "questionType",
-				type: "uint8",
-			},
-			{
-				internalType: "string",
-				name: "questionText",
-				type: "string",
-			},
-			{
-				internalType: "uint256",
-				name: "timeout",
-				type: "uint256",
-			},
-			{
-				internalType: "bytes",
-				name: "additionalData",
-				type: "bytes",
-			},
-			{
-				internalType: "address",
-				name: "asker",
-				type: "address",
-			},
-			{
-				internalType: "bool",
-				name: "isResolved",
-				type: "bool",
-			},
-			{
-				internalType: "uint256",
-				name: "createdAt",
-				type: "uint256",
-			},
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
 		],
-		stateMutability: "view",
-		type: "function",
+		"stateMutability": "view",
+		"type": "function"
 	},
 	{
-		inputs: [
+		"inputs": [],
+		"name": "maxQuestionLength",
+		"outputs": [
 			{
-				internalType: "address",
-				name: "resolver",
-				type: "address",
-			},
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
 		],
-		name: "removeResolver",
-		outputs: [],
-		stateMutability: "nonpayable",
-		type: "function",
+		"stateMutability": "view",
+		"type": "function"
 	},
 	{
-		inputs: [
+		"inputs": [],
+		"name": "maxTimeout",
+		"outputs": [
 			{
-				internalType: "bytes32",
-				name: "role",
-				type: "bytes32",
-			},
-			{
-				internalType: "address",
-				name: "callerConfirmation",
-				type: "address",
-			},
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
 		],
-		name: "renounceRole",
-		outputs: [],
-		stateMutability: "nonpayable",
-		type: "function",
+		"stateMutability": "view",
+		"type": "function"
 	},
 	{
-		inputs: [
+		"inputs": [],
+		"name": "minQuestionLength",
+		"outputs": [
 			{
-				internalType: "address",
-				name: "",
-				type: "address",
-			},
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
 		],
-		name: "resolvers",
-		outputs: [
-			{
-				internalType: "bool",
-				name: "",
-				type: "bool",
-			},
-		],
-		stateMutability: "view",
-		type: "function",
+		"stateMutability": "view",
+		"type": "function"
 	},
 	{
-		inputs: [
+		"inputs": [],
+		"name": "minTimeout",
+		"outputs": [
 			{
-				internalType: "bytes32",
-				name: "role",
-				type: "bytes32",
-			},
-			{
-				internalType: "address",
-				name: "account",
-				type: "address",
-			},
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
 		],
-		name: "revokeRole",
-		outputs: [],
-		stateMutability: "nonpayable",
-		type: "function",
+		"stateMutability": "view",
+		"type": "function"
 	},
 	{
-		inputs: [
+		"inputs": [
 			{
-				internalType: "uint256",
-				name: "newFee",
-				type: "uint256",
+				"internalType": "uint256",
+				"name": "questionId",
+				"type": "uint256"
 			},
+			{
+				"internalType": "bytes",
+				"name": "answerData",
+				"type": "bytes"
+			}
 		],
-		name: "setFee",
-		outputs: [],
-		stateMutability: "nonpayable",
-		type: "function",
+		"name": "provideAnswer",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
 	},
 	{
-		inputs: [
+		"inputs": [],
+		"name": "questionCount",
+		"outputs": [
 			{
-				internalType: "address",
-				name: "newFeeRecipient",
-				type: "address",
-			},
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
 		],
-		name: "setFeeRecipient",
-		outputs: [],
-		stateMutability: "nonpayable",
-		type: "function",
+		"stateMutability": "view",
+		"type": "function"
 	},
 	{
-		inputs: [
+		"inputs": [
 			{
-				internalType: "bytes4",
-				name: "interfaceId",
-				type: "bytes4",
-			},
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
 		],
-		name: "supportsInterface",
-		outputs: [
+		"name": "questions",
+		"outputs": [
 			{
-				internalType: "bool",
-				name: "",
-				type: "bool",
+				"internalType": "enum SybexOracle.QuestionType",
+				"name": "questionType",
+				"type": "uint8"
 			},
+			{
+				"internalType": "string",
+				"name": "questionText",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "timeout",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bytes",
+				"name": "additionalData",
+				"type": "bytes"
+			},
+			{
+				"internalType": "address",
+				"name": "asker",
+				"type": "address"
+			},
+			{
+				"internalType": "bool",
+				"name": "isResolved",
+				"type": "bool"
+			},
+			{
+				"internalType": "uint256",
+				"name": "createdAt",
+				"type": "uint256"
+			}
 		],
-		stateMutability: "view",
-		type: "function",
+		"stateMutability": "view",
+		"type": "function"
 	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "resolver",
+				"type": "address"
+			}
+		],
+		"name": "removeResolver",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "address",
+				"name": "callerConfirmation",
+				"type": "address"
+			}
+		],
+		"name": "renounceRole",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "resolvers",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "revokeRole",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "newFee",
+				"type": "uint256"
+			}
+		],
+		"name": "setFee",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newFeeRecipient",
+				"type": "address"
+			}
+		],
+		"name": "setFeeRecipient",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes4",
+				"name": "interfaceId",
+				"type": "bytes4"
+			}
+		],
+		"name": "supportsInterface",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
 ] as const satisfies Abi;
