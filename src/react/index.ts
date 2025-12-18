@@ -2,7 +2,10 @@
 export * from "./hooks";
 
 // Export providers
-export { SybexOracleProvider, useSybexOracle } from "./providers/SybexOracleProvider";
+export {
+	SybexOracleProvider,
+	useSybexOracle,
+} from "./providers/SybexOracleProvider";
 
 // Export types
 export * from "./types";
