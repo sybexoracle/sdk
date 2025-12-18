@@ -1,6 +1,6 @@
 {
 	"name": "sybex-oracle-sdk",
-	"version": "0.1.4",
+	"version": "0.1.5",
 	"description": "SybexOracle SDK for TypeScript/JavaScript",
 	"main": "dist/index.js",
 	"module": "dist/index.js",

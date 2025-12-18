@@ -4,6 +4,7 @@ export { SYBEX_BINARY_RESOLVER_ABI } from "./constants/abi/resolvers/binary";
 export { SYBEX_CATEGORICAL_RESOLVER_ABI } from "./constants/abi/resolvers/categorical";
 export { SYBEX_NUMERICAL_RESOLVER_ABI } from "./constants/abi/resolvers/numerical";
 export { SYBEX_RANGE_NUMERICAL_RESOLVER_ABI } from "./constants/abi/resolvers/range-numerical";
+import { SYBEX_AMM_ABI } from "./constants/abi/markets/sybex-automated-market"
 export { SYBEX_ORACLE_ABI } from "./constants/abi/sybexOracle";
 export { CONTRACT_ADDRESSES } from "./constants/addresses";
 // Export constants
