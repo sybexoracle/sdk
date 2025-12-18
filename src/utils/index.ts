@@ -27,7 +27,9 @@ export function getContractAddress(
 	return address as Address;
 }
 
-export function getChainId(client: PublicClient | WalletClient): Promise<ChainId> {
+export function getChainId(
+	client: PublicClient | WalletClient,
+): Promise<ChainId> {
 	return client.getChainId() as Promise<ChainId>;
 }
 
