@@ -61,7 +61,7 @@ export async function resolveRangeNumerical(
 					BigInt(questionId),
 					BigInt(lowerBound),
 					BigInt(upperBound),
-					proof
+					proof,
 				],
 				chain,
 				account: client.account as any,

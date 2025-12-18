@@ -2,312 +2,312 @@ import type { Abi } from "viem";
 
 export const SYBEX_RANGE_NUMERICAL_RESOLVER_ABI = [
 	{
-		"inputs": [
+		inputs: [
 			{
-				"internalType": "address",
-				"name": "oracleAddress",
-				"type": "address"
-			}
+				internalType: "address",
+				name: "oracleAddress",
+				type: "address",
+			},
 		],
-		"stateMutability": "nonpayable",
-		"type": "constructor"
+		stateMutability: "nonpayable",
+		type: "constructor",
 	},
 	{
-		"inputs": [],
-		"name": "AccessControlBadConfirmation",
-		"type": "error"
+		inputs: [],
+		name: "AccessControlBadConfirmation",
+		type: "error",
 	},
 	{
-		"inputs": [
+		inputs: [
 			{
-				"internalType": "address",
-				"name": "account",
-				"type": "address"
+				internalType: "address",
+				name: "account",
+				type: "address",
 			},
 			{
-				"internalType": "bytes32",
-				"name": "neededRole",
-				"type": "bytes32"
-			}
+				internalType: "bytes32",
+				name: "neededRole",
+				type: "bytes32",
+			},
 		],
-		"name": "AccessControlUnauthorizedAccount",
-		"type": "error"
+		name: "AccessControlUnauthorizedAccount",
+		type: "error",
 	},
 	{
-		"anonymous": false,
-		"inputs": [
+		anonymous: false,
+		inputs: [
 			{
-				"indexed": true,
-				"internalType": "bytes32",
-				"name": "role",
-				"type": "bytes32"
+				indexed: true,
+				internalType: "bytes32",
+				name: "role",
+				type: "bytes32",
 			},
 			{
-				"indexed": true,
-				"internalType": "bytes32",
-				"name": "previousAdminRole",
-				"type": "bytes32"
+				indexed: true,
+				internalType: "bytes32",
+				name: "previousAdminRole",
+				type: "bytes32",
 			},
 			{
-				"indexed": true,
-				"internalType": "bytes32",
-				"name": "newAdminRole",
-				"type": "bytes32"
-			}
+				indexed: true,
+				internalType: "bytes32",
+				name: "newAdminRole",
+				type: "bytes32",
+			},
 		],
-		"name": "RoleAdminChanged",
-		"type": "event"
+		name: "RoleAdminChanged",
+		type: "event",
 	},
 	{
-		"anonymous": false,
-		"inputs": [
+		anonymous: false,
+		inputs: [
 			{
-				"indexed": true,
-				"internalType": "bytes32",
-				"name": "role",
-				"type": "bytes32"
+				indexed: true,
+				internalType: "bytes32",
+				name: "role",
+				type: "bytes32",
 			},
 			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "account",
-				"type": "address"
+				indexed: true,
+				internalType: "address",
+				name: "account",
+				type: "address",
 			},
 			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "sender",
-				"type": "address"
-			}
+				indexed: true,
+				internalType: "address",
+				name: "sender",
+				type: "address",
+			},
 		],
-		"name": "RoleGranted",
-		"type": "event"
+		name: "RoleGranted",
+		type: "event",
 	},
 	{
-		"anonymous": false,
-		"inputs": [
+		anonymous: false,
+		inputs: [
 			{
-				"indexed": true,
-				"internalType": "bytes32",
-				"name": "role",
-				"type": "bytes32"
+				indexed: true,
+				internalType: "bytes32",
+				name: "role",
+				type: "bytes32",
 			},
 			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "account",
-				"type": "address"
+				indexed: true,
+				internalType: "address",
+				name: "account",
+				type: "address",
 			},
 			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "sender",
-				"type": "address"
-			}
+				indexed: true,
+				internalType: "address",
+				name: "sender",
+				type: "address",
+			},
 		],
-		"name": "RoleRevoked",
-		"type": "event"
+		name: "RoleRevoked",
+		type: "event",
 	},
 	{
-		"inputs": [],
-		"name": "DEFAULT_ADMIN_ROLE",
-		"outputs": [
+		inputs: [],
+		name: "DEFAULT_ADMIN_ROLE",
+		outputs: [
 			{
-				"internalType": "bytes32",
-				"name": "",
-				"type": "bytes32"
-			}
+				internalType: "bytes32",
+				name: "",
+				type: "bytes32",
+			},
 		],
-		"stateMutability": "view",
-		"type": "function"
+		stateMutability: "view",
+		type: "function",
 	},
 	{
-		"inputs": [],
-		"name": "OPERATOR_ROLE",
-		"outputs": [
+		inputs: [],
+		name: "OPERATOR_ROLE",
+		outputs: [
 			{
-				"internalType": "bytes32",
-				"name": "",
-				"type": "bytes32"
-			}
+				internalType: "bytes32",
+				name: "",
+				type: "bytes32",
+			},
 		],
-		"stateMutability": "view",
-		"type": "function"
+		stateMutability: "view",
+		type: "function",
 	},
 	{
-		"inputs": [
+		inputs: [
 			{
-				"internalType": "bytes32",
-				"name": "role",
-				"type": "bytes32"
-			}
+				internalType: "bytes32",
+				name: "role",
+				type: "bytes32",
+			},
 		],
-		"name": "getRoleAdmin",
-		"outputs": [
+		name: "getRoleAdmin",
+		outputs: [
 			{
-				"internalType": "bytes32",
-				"name": "",
-				"type": "bytes32"
-			}
+				internalType: "bytes32",
+				name: "",
+				type: "bytes32",
+			},
 		],
-		"stateMutability": "view",
-		"type": "function"
+		stateMutability: "view",
+		type: "function",
 	},
 	{
-		"inputs": [
+		inputs: [
 			{
-				"internalType": "bytes32",
-				"name": "role",
-				"type": "bytes32"
+				internalType: "bytes32",
+				name: "role",
+				type: "bytes32",
 			},
 			{
-				"internalType": "address",
-				"name": "account",
-				"type": "address"
-			}
+				internalType: "address",
+				name: "account",
+				type: "address",
+			},
 		],
-		"name": "grantRole",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
+		name: "grantRole",
+		outputs: [],
+		stateMutability: "nonpayable",
+		type: "function",
 	},
 	{
-		"inputs": [
+		inputs: [
 			{
-				"internalType": "bytes32",
-				"name": "role",
-				"type": "bytes32"
+				internalType: "bytes32",
+				name: "role",
+				type: "bytes32",
 			},
 			{
-				"internalType": "address",
-				"name": "account",
-				"type": "address"
-			}
+				internalType: "address",
+				name: "account",
+				type: "address",
+			},
 		],
-		"name": "hasRole",
-		"outputs": [
+		name: "hasRole",
+		outputs: [
 			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
+				internalType: "bool",
+				name: "",
+				type: "bool",
+			},
 		],
-		"stateMutability": "view",
-		"type": "function"
+		stateMutability: "view",
+		type: "function",
 	},
 	{
-		"inputs": [],
-		"name": "oracle",
-		"outputs": [
+		inputs: [],
+		name: "oracle",
+		outputs: [
 			{
-				"internalType": "contract ISybexOracle",
-				"name": "",
-				"type": "address"
-			}
+				internalType: "contract ISybexOracle",
+				name: "",
+				type: "address",
+			},
 		],
-		"stateMutability": "view",
-		"type": "function"
+		stateMutability: "view",
+		type: "function",
 	},
 	{
-		"inputs": [
+		inputs: [
 			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
+				internalType: "uint256",
+				name: "",
+				type: "uint256",
+			},
 		],
-		"name": "proofs",
-		"outputs": [
+		name: "proofs",
+		outputs: [
 			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			}
+				internalType: "string",
+				name: "",
+				type: "string",
+			},
 		],
-		"stateMutability": "view",
-		"type": "function"
+		stateMutability: "view",
+		type: "function",
 	},
 	{
-		"inputs": [
+		inputs: [
 			{
-				"internalType": "bytes32",
-				"name": "role",
-				"type": "bytes32"
+				internalType: "bytes32",
+				name: "role",
+				type: "bytes32",
 			},
 			{
-				"internalType": "address",
-				"name": "callerConfirmation",
-				"type": "address"
-			}
+				internalType: "address",
+				name: "callerConfirmation",
+				type: "address",
+			},
 		],
-		"name": "renounceRole",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
+		name: "renounceRole",
+		outputs: [],
+		stateMutability: "nonpayable",
+		type: "function",
 	},
 	{
-		"inputs": [
+		inputs: [
 			{
-				"internalType": "uint256",
-				"name": "questionId",
-				"type": "uint256"
+				internalType: "uint256",
+				name: "questionId",
+				type: "uint256",
 			},
 			{
-				"internalType": "int256",
-				"name": "lowerBound",
-				"type": "int256"
+				internalType: "int256",
+				name: "lowerBound",
+				type: "int256",
 			},
 			{
-				"internalType": "int256",
-				"name": "upperBound",
-				"type": "int256"
+				internalType: "int256",
+				name: "upperBound",
+				type: "int256",
 			},
 			{
-				"internalType": "string",
-				"name": "proof",
-				"type": "string"
-			}
+				internalType: "string",
+				name: "proof",
+				type: "string",
+			},
 		],
-		"name": "resolve",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
+		name: "resolve",
+		outputs: [],
+		stateMutability: "nonpayable",
+		type: "function",
 	},
 	{
-		"inputs": [
+		inputs: [
 			{
-				"internalType": "bytes32",
-				"name": "role",
-				"type": "bytes32"
+				internalType: "bytes32",
+				name: "role",
+				type: "bytes32",
 			},
 			{
-				"internalType": "address",
-				"name": "account",
-				"type": "address"
-			}
+				internalType: "address",
+				name: "account",
+				type: "address",
+			},
 		],
-		"name": "revokeRole",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
+		name: "revokeRole",
+		outputs: [],
+		stateMutability: "nonpayable",
+		type: "function",
 	},
 	{
-		"inputs": [
+		inputs: [
 			{
-				"internalType": "bytes4",
-				"name": "interfaceId",
-				"type": "bytes4"
-			}
+				internalType: "bytes4",
+				name: "interfaceId",
+				type: "bytes4",
+			},
 		],
-		"name": "supportsInterface",
-		"outputs": [
+		name: "supportsInterface",
+		outputs: [
 			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
+				internalType: "bool",
+				name: "",
+				type: "bool",
+			},
 		],
-		"stateMutability": "view",
-		"type": "function"
-	}
+		stateMutability: "view",
+		type: "function",
+	},
 ] as const satisfies Abi;
