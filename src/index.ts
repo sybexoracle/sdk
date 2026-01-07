@@ -4,7 +4,8 @@ export { SYBEX_BINARY_RESOLVER_ABI } from "./constants/abi/resolvers/binary";
 export { SYBEX_CATEGORICAL_RESOLVER_ABI } from "./constants/abi/resolvers/categorical";
 export { SYBEX_NUMERICAL_RESOLVER_ABI } from "./constants/abi/resolvers/numerical";
 export { SYBEX_RANGE_NUMERICAL_RESOLVER_ABI } from "./constants/abi/resolvers/range-numerical";
-export { SYBEX_AMM_ABI } from "./constants/abi/markets/sybex-automated-market"
+export { SYBEX_AMM_ABI } from "./constants/abi/markets/sybex-automated-market";
+export { SYBEX_AMM_V2_ABI } from "./constants/abi/markets/sybex-automated-market-v2";
 export { SYBEX_ORACLE_ABI } from "./constants/abi/sybexOracle";
 export { CONTRACT_ADDRESSES } from "./constants/addresses";
 // Export constants
@@ -44,6 +45,26 @@ export {
 	resolveRangeNumerical,
 	revokeResolverRole as revokeRangeNumericalResolverRole,
 } from "./functions/private/resolvers/range-numeric";
+// Export private AMM V2 functions
+export {
+	addSupportedToken,
+	cancelMarket,
+	claimWinnings,
+	createMarket,
+	grantRoleAmm,
+	initializeMarket,
+	placePosition,
+	placePositionWithToken,
+	refund,
+	removeSupportedToken,
+	renounceRoleAmm,
+	resolveMarket,
+	revokeRoleAmm,
+	setFeePercentageAmm,
+	setFeeRecipientAmm,
+	setOracleAmm,
+	withdrawFees,
+} from "./functions/private/amm-v2";
 // Export public oracle functions
 export {
 	getAnswer,
@@ -61,6 +82,24 @@ export {
 	hasRole,
 	isResolver,
 } from "./functions/public/oracle";
+// Export public AMM V2 functions
+export {
+	getAccumulatedFees,
+	getAdminRole,
+ getDefaultAdminRole,
+	getFeePercentageAmm,
+	getFeeRecipientAmm,
+	getMarket,
+	getMarketCounter,
+	getOutcomeLabel,
+	getOutcomePool,
+	getRoleAdminAmm,
+	getSybexOracle,
+	getUserPosition,
+	hasRoleAmm,
+	isTokenSupported,
+	supportsInterface,
+} from "./functions/public/amm-v2";
 export type * from "./types";
 // Export utilities
 export * from "./utils";
@@ -115,6 +154,42 @@ import {
 	hasRole as _hasRole,
 	isResolver as _isResolver,
 } from "./functions/public/oracle";
+import {
+	addSupportedToken as _addSupportedToken,
+	cancelMarket as _cancelMarket,
+	claimWinnings as _claimWinnings,
+	createMarket as _createMarket,
+	grantRoleAmm as _grantRoleAmm,
+	initializeMarket as _initializeMarket,
+	placePosition as _placePosition,
+	placePositionWithToken as _placePositionWithToken,
+	refund as _refund,
+	removeSupportedToken as _removeSupportedToken,
+	renounceRoleAmm as _renounceRoleAmm,
+	resolveMarket as _resolveMarket,
+	revokeRoleAmm as _revokeRoleAmm,
+	setFeePercentageAmm as _setFeePercentageAmm,
+	setFeeRecipientAmm as _setFeeRecipientAmm,
+	setOracleAmm as _setOracleAmm,
+	withdrawFees as _withdrawFees,
+} from "./functions/private/amm-v2";
+import {
+	getAccumulatedFees as _getAccumulatedFees,
+	getAdminRole as _getAdminRole,
+	getDefaultAdminRole as _getDefaultAdminRole,
+	getFeePercentageAmm as _getFeePercentageAmm,
+	getFeeRecipientAmm as _getFeeRecipientAmm,
+	getMarket as _getMarket,
+	getMarketCounter as _getMarketCounter,
+	getOutcomeLabel as _getOutcomeLabel,
+	getOutcomePool as _getOutcomePool,
+	getRoleAdminAmm as _getRoleAdminAmm,
+	getSybexOracle as _getSybexOracle,
+	getUserPosition as _getUserPosition,
+	hasRoleAmm as _hasRoleAmm,
+	isTokenSupported as _isTokenSupported,
+	supportsInterface as _supportsInterface,
+} from "./functions/public/amm-v2";
 
 // Re-export commonly used functions for convenience
 export const oracle = {
@@ -170,4 +245,43 @@ export const resolvers = {
 		grantRole: _rangeGrantResolverRole,
 		revokeRole: _rangeRevokeResolverRole,
 	},
+};
+
+// Re-export AMM V2 functions
+export const ammV2 = {
+	// Public functions
+	getMarket: _getMarket,
+	getOutcomeLabel: _getOutcomeLabel,
+	getOutcomePool: _getOutcomePool,
+	getUserPosition: _getUserPosition,
+	getMarketCounter: _getMarketCounter,
+	getAccumulatedFees: _getAccumulatedFees,
+	getFeePercentage: _getFeePercentageAmm,
+	getFeeRecipient: _getFeeRecipientAmm,
+	getSybexOracle: _getSybexOracle,
+	getAdminRole: _getAdminRole,
+	getDefaultAdminRole: _getDefaultAdminRole,
+	hasRole: _hasRoleAmm,
+	getRoleAdmin: _getRoleAdminAmm,
+	supportsInterface: _supportsInterface,
+	isTokenSupported: _isTokenSupported,
+
+	// Private functions
+	createMarket: _createMarket,
+	placePosition: _placePosition,
+	placePositionWithToken: _placePositionWithToken,
+	claimWinnings: _claimWinnings,
+	refund: _refund,
+	resolveMarket: _resolveMarket,
+	cancelMarket: _cancelMarket,
+	setFeePercentage: _setFeePercentageAmm,
+	setFeeRecipient: _setFeeRecipientAmm,
+	setOracle: _setOracleAmm,
+	addSupportedToken: _addSupportedToken,
+	removeSupportedToken: _removeSupportedToken,
+	withdrawFees: _withdrawFees,
+	grantRole: _grantRoleAmm,
+	revokeRole: _revokeRoleAmm,
+	renounceRole: _renounceRoleAmm,
+	initializeMarket: _initializeMarket,
 };
